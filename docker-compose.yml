@@ -1,0 +1,73 @@
+# docker-compose.yml
+version: '3.8'
+
+services:
+  qwen253b:
+    build: ./qwen253b
+    image: 127.0.0.1:4000/qwen253b
+    ports:
+      - "2001:5000"
+    container_name: qwen253b
+
+  n8n:
+    build: ./n8n
+    image: 127.0.0.1:4000/n8n
+    ports:
+      - "2002:5000"
+    container_name: n8n
+
+  pyautogui:
+    build: ./pyautogui
+    image: 127.0.0.1:4000/pyautogui
+    ports:
+      - "2003:5000"
+    container_name: pyautogui
+
+  opencv:
+    build: ./opencv
+    image: 127.0.0.1:4000/opencv
+    ports:
+      - "2004:5000"
+    container_name: opencv
+
+  yolo11:
+    build: ./yolo11
+    image: 127.0.0.1:4000/yolo11
+    ports:
+      - "2005:5000"
+    container_name: yolo11
+
+  yolo8:
+    build: ./yolo8
+    image: 127.0.0.1:4000/yolo8
+    ports:
+      - "2006:5000"
+    container_name: yolo8
+
+  yolo4:
+    build: ./yolo4
+    image: 127.0.0.1:4000/yolo4
+    ports:
+      - "2007:5000"
+    container_name: yolo4
+
+  deepsort:
+    build: ./deepsort
+    image: 127.0.0.1:4000/deepsort
+    ports:
+      - "2008:5000"
+    container_name: deepsort
+
+  sort:
+    build: ./sort
+    image: 127.0.0.1:4000/sort
+    ports:
+      - "2009:5000"
+    container_name: sort
+
+  facenet:
+    build: ./facenet
+    image: 127.0.0.1:4000/facenet
+    ports:
+      - "2010:5000"
+    container_name: facenet
