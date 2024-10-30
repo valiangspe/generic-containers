@@ -1,5 +1,5 @@
 # docker-compose.yml
-version: '3.8'
+version: "3.8"
 
 services:
   qwen253b:
@@ -9,12 +9,19 @@ services:
       - "2001:5000"
     container_name: qwen253b
 
+
   n8n:
-    build: ./n8n
-    image: 127.0.0.1:4000/n8n
+    image: docker.n8n.io/n8nio/n8n
+    restart: always
     ports:
-      - "2002:5000"
-    container_name: n8n
+      - "2002:5678"
+    environment:
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=production
+      - GENERIC_TIMEZONE=Asia/Jakarta
+    volumes:
+      - ./n8n_data:/home/node/.n8n
 
   pyautogui:
     build: ./pyautogui
@@ -41,7 +48,7 @@ services:
     build: ./yolo8
     image: 127.0.0.1:4000/yolo8
     ports:
-      - "2006:5000"
+      - "2006:2006"
     container_name: yolo8
 
   yolo4:
@@ -62,7 +69,7 @@ services:
     build: ./sort
     image: 127.0.0.1:4000/sort
     ports:
-      - "2009:5000"
+      - "2009:2009"
     container_name: sort
 
   facenet:
